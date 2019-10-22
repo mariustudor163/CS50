@@ -1,0 +1,51 @@
+/* Greedy Algorithm - CS50 Class */
+
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+float positiveFloat(string prompt);
+
+/* Main function */
+int main(void)
+{
+    /* Transforming user input to int and vars */
+    float a = get_float("Change: ");
+    int total = a * 100;
+    total = round(total);
+    int q, d, n, p; 
+    
+    /* Finding quarters */
+    q = total / 25;    
+    total = total % 25;    
+    
+    /* Finding dimes */
+    d = total / 10;
+    total = total % 10;
+    
+    /* Finding nickles */
+    n = total / 5;
+    total = total % 5;       
+      
+    /* Finding pennies */
+    p = total;    
+    
+   /* Adding the number of coins together */ 
+    int sum = q + d + p + n;
+    printf("%d\n", sum);
+    
+}
+
+/* Make sure user's input is a number larger than zero */
+float positiveFloat(string prompt)
+{
+    float n;
+    do
+    {
+        n = get_float("%s", prompt);
+    }
+    while ( n < 0.0);
+    return n;
+}
+
+    
